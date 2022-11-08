@@ -6,10 +6,10 @@ window_object= Tk()
 
 def cm_to_m():
 
-  cm= int(entry_value.get())
+  cm= float(entry_value.get())
   calculation= str(cm/100)
   output= f'{calculation} metres'
-  
+
   text.insert(END,output)
 
 
