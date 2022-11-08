@@ -4,12 +4,12 @@
 from tkinter import *
 window_object= Tk()
 
-def display_text():
-  print(entry_value.get)
+def m_to_cm():
+  text.insert(END,( str((int(entry_value.get()))/ 100)+ 'cm'))
 
 
 
-btn= Button(window_object,background='red',text='A cool button ',font='Tahoma',borderwidth= 2,command=display_text)
+btn= Button(window_object,background='red',text='Execute',font='Tahoma',borderwidth= 2,command=m_to_cm)
 
 btn.grid(row=0,column=0)
 
