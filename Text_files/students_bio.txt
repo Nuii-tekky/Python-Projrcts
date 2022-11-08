@@ -1,0 +1,6 @@
+﻿Name;Age;height
+Ekomobong;20;189
+prince;32;157
+vivian;33;190
+precious;23;128
+Ubong;19,178
