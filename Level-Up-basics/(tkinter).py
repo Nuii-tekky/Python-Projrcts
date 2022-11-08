@@ -4,6 +4,10 @@
 from tkinter import *
 window_object= Tk()
 
+def display_text():
+  print(entry_value.get)
+
+
 
 btn= Button(window_object,background='red',text='A cool button ',font='Tahoma',borderwidth= 2,command=display_text)
 
@@ -15,9 +19,6 @@ entry.grid(row=0,column=1)
 
 text= Text(window_object,height=1,width=4)
 text.grid(row=0,column=2)
-
-def display_text():
-  print(entry_value.get())
 
 
 window_object.mainloop()
