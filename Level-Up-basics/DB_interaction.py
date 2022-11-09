@@ -30,7 +30,7 @@ insert_values('Cement',10,2600)
 insert_values('paint_brush',5,200)
 insert_values('Mopstick',7,450)
 
-def view_db():
+def view_db_values():
   connection_object= sqlite3.connect('sample.db')
   cursor_object= connection_object.cursor()
   cursor_object.execute("SELECT * FROM goods")
@@ -38,12 +38,15 @@ def view_db():
   connection_object.close()
   return rows_object
 
-if type(view_db())== 'list':
-  for entry in view_db():
-    print(entry)
-else:
-  print(view_db())    
 
-  
+def clean_output():
+  if type(view_db_values())== list:
+    for entry in view_db_values():
+      print(entry)
+  else:
+    print(view_db())    
+
+clean_output()
+
 
 
