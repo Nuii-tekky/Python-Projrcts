@@ -41,6 +41,7 @@ def delete_values(value):
   connection_object.commit()
   connection_object.close()
   
+
 delete_values("Cement")
 
 def update_values(quantity,price,decription):
@@ -69,6 +70,3 @@ def clean_output():
     print(view_db_values())    
 
 clean_output()
-
-
-
