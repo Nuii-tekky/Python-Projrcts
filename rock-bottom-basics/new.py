@@ -2,20 +2,12 @@ import os
 import sys
 
 
-with open(r'C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\rock-bottom-basics\files.txt','w') as new_file:
-  new_file.write(list)
+current_dir= r"C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\rock-bottom-basics"
+new_file_path= r'C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\rock-bottom-basics\files.txt'
 
-
-list= []
-
-current_dir= os.getcwd()
 for files in os.listdir(current_dir):
-  list.append(files)
-
-
-
-
-
+  with open(new_file_path,'w+') as new_file:
+    new_file.write(files)
 
 
 
