@@ -21,22 +21,27 @@ def add():
 
   with open(r'C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\passwords.txt','a') as file:
     file.write(user_name+ "|" + passwd + '\n')
+  quit()
 
 def view():
   path= r'C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\passwords.txt'
 
   with open(path,'r') as file:
-    content= file.read()
-  if os.path.getsize(path) == 0:
-    query3= input('No passwords added.type a to add and q to quit: ')
-    if query3== 'a':
-      return add()
-    elif query3== 'q':
-      quit()
+    content= file.read()  
+    if os.path.getsize(path) == 0:
+      for line in file.readlines():
+        data= line.rstrip()
+        query3= input('No passwords added.type a to add and q to quit: ')
+        if query3== 'a':
+          return add()
+        elif query3== 'q':
+          quit()
+        else:
+          return 'invalid input! ' 
     else:
-      return 'invalid input! ' 
-  else:
-    return content
+      user,passwd= data.split("|")
+      return f'username: {user} | password: {passwd}'
+      
 
 
 print(action())          

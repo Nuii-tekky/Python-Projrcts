@@ -28,4 +28,10 @@
 # #how to prompt user input to accept two arguments        
 
 
-print('hello world')
+numbers= [1,2,3,4,5,6,7,8,9,10]
+
+start=0
+
+for number in numbers:
+  start+=number
+print(start)
