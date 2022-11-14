@@ -1,47 +1,48 @@
 import os
+import random
 
-print('Welcome to the ultimate Password manager: ')
 
-def action():
-  query= input('Before we continue, type in the master password: ')
-  query2= input('Do you wanna view or add passwords (v or a) or q to quit: ').lower()
-  if query2== 'v':
-    return view()
-  elif query2== 'a':
-    return add()
-  elif query2== 'q':
-    quit()  
+print('Welcome to The ultimate Password Manager: ')
+print('What do you wanna do? ')
+query= input("type 'a' to add password, "+"\n"+"'v' to view existing ones and "+"\n"+"'g' to generate a random password: ").lower()
+
+def input_checker(value):
+  if value== 'g':
+    return generate_passwd()
+  elif value=='v':
+    pass
+  elif value=='a':
+    pass
   else:
-    return 'invalid input! ' 
+    return "\n" + 'Invalid Input'
+  
 
+def generate_passwd():
+  numbers= '123456789'
+  characters= '~!@#$%^&*()__+/*-?:"'
 
-def add():
-  user_name= input('enter the account username: ')
-  passwd= input('enter the password: ')
+  def generator(value):
+    return 'hello'
 
-  with open(r'C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\passwords.txt','a') as file:
-    file.write(user_name+ "|" + passwd + '\n')
-  quit()
-
-def view():
-  path= r'C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\passwords.txt'
-
-  with open(path,'r') as file:
-    content= file.read()  
-    if os.path.getsize(path) == 0:
-      for line in file.readlines():
-        data= line.rstrip()
-        query3= input('No passwords added.type a to add and q to quit: ')
-        if query3== 'a':
-          return add()
-        elif query3== 'q':
-          quit()
-        else:
-          return 'invalid input! ' 
+  print('Enter a random word.We will build your secure password from there... ')
+  query_2= input('Take Note: This is not your password.It only helps us to generate a strong one: ').lower()
+  while True:
+    if len(query_2)<8:
+      print('Word Too Weak ! ')
+      query_3= input('enter a stronger word! At least 9 characters for extra security: ').lower()
+      if len(query_3)<8:
+        return "You've failed to Follow Instructions! "
+        break
+      else:
+        print("\n"+ '...........verification successful!')
+        print( '...........your password is being generated ' + "\n" )
+        return generator(query_3)
+        break
     else:
-      user,passwd= data.split("|")
-      return f'username: {user} | password: {passwd}'
-      
+      print("\n"+'...........verification successful!')
+      print( '...........your password is being generated ' + "\n" )
+      return generator(query_2)
+      break
+   
 
-
-print(action())          
+print(input_checker(query))
