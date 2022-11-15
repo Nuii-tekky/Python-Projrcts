@@ -1,6 +1,6 @@
 import os
 import random
-from datetime import datetime as dt
+
 
 print('Welcome to The ultimate Password Manager: ')
 print('What do you wanna do? ')
@@ -12,15 +12,21 @@ def input_checker(value):
   elif value=='v':
     return view_passwd()
   elif value=='a':
-    pass
+    return add_passwd()
   else:
     return "\n" + 'Invalid Input'
   
 
 def generate_passwd():
   def generator(value):
-    return 'hello'
-    
+    password= ''
+    chars= f'{value.upper()}{value}1234567890~!@#$%^&*()_+":'
+    for char in range(10):
+      password += random.choice(chars)
+    complete_word_list= list(password)
+    random.SystemRandom().shuffle(complete_word_list)
+    password= ''.join(complete_word_list)  
+    return f'your random password is: {password}'
 
   print('Enter a random word.We will build your secure password from there... ')
   query_2= input('Take Note: This is not your password.It only helps us to generate a strong one: ').lower()
@@ -43,11 +49,12 @@ def generate_passwd():
       break
        
 def view_passwd():
-  path= r'C:\Users\ekomobong\Documents\My Projects\Python\Python-sandboxes\exercises\passwords.txt'
-  if os.path.exists(path):
-    with open(path,'r+') as passwd_line:
-      pass
-    print('Your saved passwords will now be shown: ' + "\n")
+  passwd_path= r"C:\Users\ekomobong\Documents\PDF'S\passwords.txt"
+  if os.path.exists(passwd_path):
+    with open(passwd_path,'r') as passwd_file:
+      for line in passwd_file.readlines():
+        print("\n" + line.rstrip())
+        return ' there you go...'
   else:
     print(' checking......................')
     print(' Oops!! No saved passwords.')
@@ -62,7 +69,35 @@ def view_passwd():
   
 
 def add_passwd():
-  return 'hello'
+  passwd_path= r"C:\Users\ekomobong\Documents\PDF'S\passwords.txt"
+  print(f'\n Safeguard your passwords here... ')
+  query_5= input(' enter the account or username associated with this: ').lower()
+  if len(query_5)>= 1:
+    query_6= input(' enter the password: ')
+  else:
+    print('\n'+' Username skipped! ')
+    query_6= input(' enter the password: ') 
+  with open(passwd_path,'a') as file:
+    if len(query_5)>=1:
+      file.write(f'Username/Account: {query_5.title()} | Password: {query_6} \n')
+      print( f" Password added.....Check this link '{passwd_path}'")
+      query_7= input(' want to add again? type a to add and q to quit: ').lower()
+      if query_7== 'a':
+        return add_passwd()
+      elif query_7== 'q':
+        quit()
+      else:
+        return ' learn to follow instructions!! '  
+    else:
+      file.write(f'Username/Account: none | password: {query_6} \n')
+      print( f" Password added.. Check this link '{passwd_path}'")
+      query_7= input(' want to add again? type a to add and q to quit. ').lower()
+      if query_7== 'a':
+        return add_passwd()
+      elif query_7== 'q':
+        quit()
+      else:
+        return 'Learn to follow instructions!! '     
 
 
 print(input_checker(query))
