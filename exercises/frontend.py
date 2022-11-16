@@ -1,5 +1,7 @@
 from tkinter import *
-import backend
+from backend import DataBase
+
+database_object= DataBase('books.db')
 
 def get_selected_row(event):
     global selected_tuple
@@ -16,24 +18,24 @@ def get_selected_row(event):
 
 def view_command():
     list1.delete(0,END)
-    for row in backend.view():
+    for row in database_object.view():
         list1.insert(END,row)
 
 def search_command():
     list1.delete(0,END)
-    for row in backend.search(title_text.get(),author_text.get(),year_text.get(),isbn_text.get()):
+    for row in database_object.search(title_text.get(),author_text.get(),year_text.get(),isbn_text.get()):
         list1.insert(END,row)
 
 def add_command():
-    backend.insert(title_text.get(),author_text.get(),year_text.get(),isbn_text.get())
+    database_object.insert(title_text.get(),author_text.get(),year_text.get(),isbn_text.get())
     list1.delete(0,END)
     list1.insert(END,(title_text.get(),author_text.get(),year_text.get(),isbn_text.get()))
 
 def delete_command():
-    backend.delete(selected_tuple[0])
+    database_object.delete(selected_tuple[0])
 
 def update_command():
-    backend.update(selected_tuple[0],title_text.get(),author_text.get(),year_text.get(),isbn_text.get())
+    database_object.update(selected_tuple[0],title_text.get(),author_text.get(),year_text.get(),isbn_text.get())
 
 window=Tk()
 
