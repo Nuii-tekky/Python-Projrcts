@@ -20,7 +20,7 @@ def input_checker(value):
 def generate_passwd():
   def generator(value):
     password= ''
-    chars= f'{value.upper()}{value}1234567890~!@#$%^&*()_+":'
+    chars= f'{value.upper()}{value}1234567890~!@#$%&*'
     for char in range(10):
       password += random.choice(chars)
     complete_word_list= list(password)
