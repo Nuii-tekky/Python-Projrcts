@@ -10,6 +10,7 @@ class DataBase:
 
     def insert(self,title,author,year,isbn):
         self.cur.execute("INSERT INTO book VALUES (NULL,?,?,?,?)",(title,author,year,isbn))
+        self.conn.commit()
         
     def view(self):
         self.cur.execute("SELECT * FROM book")
@@ -30,3 +31,8 @@ class DataBase:
         self.cur.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",(title,author,year,isbn,id))
         self.conn.commit()
 
+    def __del__(self):
+        self.conn.close()
+
+    # That last function will be executed when the object instance is exited or when we exit the program,
+    # the reverse is the first 'initfunction' that runs immediately the object instance was called in otherwords when the program ran. 
