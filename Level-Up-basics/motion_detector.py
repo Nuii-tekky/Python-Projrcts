@@ -16,10 +16,21 @@ while True:
     continue
 
   delta_frame= cv2.absdiff(first_frame,blur_gray)
-
   tresh_frame= cv2.threshold(delta_frame,30,255,cv2.THRESH_BINARY)[1]
+  tresh_frame= cv2.dilate(tresh_frame,None,iterations=1)
+
+  (contours,_)= cv2.findContours(tresh_frame.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+
+  for contour in contours:
+    if cv2.contourArea(contour)> 1000:
+      continue
+    (x,y,w,h)= cv2.boundingRect(contour)
+    cv2.rectangle(frame,x,y,x+w,y+h,(63,255,190),2)
+
+
   cv2.imshow('Anoda window ',delta_frame)
   cv2.imshow('yet another window' , tresh_frame)
+  cv2.imshow('Brand new window',frame)
   key= cv2.waitKey(1)
   if key== ord('s'):
     break
