@@ -1,5 +1,5 @@
 import json
-from difflib import get_close_matches
+from difflib import get_close_matches as gcm
 
 
 # calling the dictionary from the json file and opening it
@@ -15,10 +15,10 @@ def get(user_input):
   if user_input in dictionary:
     return dictionary[user_input]
 
-  elif len(get_close_matches(user_input,dictionary.keys()))>0:
-    yes_no= input('did you mean %s? If yes type \'y\' or no type \'n\': ' % get_close_matches(user_input,dictionary.keys()) [0])
+  elif len(gcm(user_input,dictionary.keys()))>0:
+    yes_no= input(f"did you mean {gcm(user_input,dictionary.keys())[0]}? If yes type 'y' or no type 'n': ")
     if yes_no== 'y':
-      return dictionary[get_close_matches(user_input,dictionary.keys()) [0]]
+      return dictionary[gcm(user_input,dictionary.keys()) [0]]
     elif yes_no=='n':
       return 'word not found,please review your spellings'  
     else:

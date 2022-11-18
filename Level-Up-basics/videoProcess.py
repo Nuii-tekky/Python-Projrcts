@@ -1,5 +1,5 @@
 
-import cv2,time
+import cv2
 
 
 # to capture  1 frame at a time i.e image
@@ -15,15 +15,16 @@ import cv2,time
 
 # capture a full video
 video_obj= cv2.VideoCapture(0)
+a=0
 
 while True:
-  frame= video_obj.read()
-  gray_version= cv2.cvtColor(video_obj,cv2.COLOR_BGR2GRAY)
-  cv2.imshow('New window',gray_version)
+  a= a+1
+  check,frame= video_obj.read()
+  cv2.imshow('New window',frame)
   key= cv2.waitKey(1)
   if key== ord('s'):
     break
 
-  
+print(a)  
 video_obj.release()
 cv2.destroyAllWindows()
