@@ -25,7 +25,7 @@ while True:
     if cv2.contourArea(contour)> 1000:
       continue
     (x,y,w,h)= cv2.boundingRect(contour)
-    cv2.rectangle(frame,x,y,x+w,y+h,(63,255,190),2)
+    cv2.rectangle(frame,(x,y),(x+w,y+h),(63,255,190),2)
 
 
   cv2.imshow('Anoda window ',delta_frame)
@@ -38,3 +38,5 @@ while True:
 print(a)  
 video_obj.release()
 cv2.destroyAllWindows()
+
+
