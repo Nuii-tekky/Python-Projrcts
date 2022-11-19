@@ -1,6 +1,6 @@
 import os
 import random
-
+import time
 
 print('Welcome to The ultimate Password Manager: ')
 print('What do you wanna do? ')
@@ -26,6 +26,7 @@ def generate_passwd():
     complete_word_list= list(password)
     random.SystemRandom().shuffle(complete_word_list)
     password= ''.join(complete_word_list)  
+    time.sleep(2000)
     return f'your random password is: {password}'
 
   print('Enter a random word.We will build your secure password from there... ')
