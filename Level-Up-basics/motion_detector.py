@@ -1,3 +1,4 @@
+
 import cv2
 from datetime import datetime as dt
 import pandas
@@ -54,9 +55,9 @@ while True:
   if status_list[-1]==1 and status_list[-2]== 0:
     timestamps.append(dt.now())  
 
-  cv2.imshow('Anoda window ',delta_frame)
-  cv2.imshow('yet another window' , tresh_frame)
-  cv2.imshow('Brand new window',frame)
+  cv2.imshow('Delta Frame ',delta_frame)
+  cv2.imshow('Treshold frame' , tresh_frame)
+  cv2.imshow('Original Frame',frame)
   key= cv2.waitKey(1)
   if key== ord('s'):
     if status== 1:
