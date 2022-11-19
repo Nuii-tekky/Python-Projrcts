@@ -26,7 +26,6 @@ def generate_passwd():
     complete_word_list= list(password)
     random.SystemRandom().shuffle(complete_word_list)
     password= ''.join(complete_word_list)  
-    time.sleep(2000)
     return f'your random password is: {password}'
 
   print('Enter a random word.We will build your secure password from there... ')
@@ -40,12 +39,16 @@ def generate_passwd():
         break
       else:
         print("\n"+ '...........verification successful!')
+        time.sleep(1)
         print( '...........your password is being generated ' + "\n" )
+        time.sleep(2)
         return generator(query_3)
         break
     else:
       print("\n"+'...........verification successful!')
+      time.sleep(1)
       print( '...........your password is being generated ' + "\n" )
+      time.sleep(2)
       return generator(query_2)
       break
        
