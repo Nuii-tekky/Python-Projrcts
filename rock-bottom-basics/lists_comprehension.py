@@ -7,7 +7,7 @@ mylist=[123,234,456,678,878,765,456,456,329,494,423]
 
 #my desired list is:[12.3,23.4,45.6,67.8,87.8,76.5,45.6,45.6,32.9,49.4,42.3]
 
-#so what i'll do is use a for loop to iterate round the items and divide it by 10,then add it to a new empty variable
+#so what i'll do is use a for loop to iterate through the items and divide it by 10,then add it to a new empty list
 
 new_list=[]
 

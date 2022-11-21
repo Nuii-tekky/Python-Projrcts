@@ -1,3 +1,5 @@
+
+
 #if statements are called conditionals because they give python a certain function to carry out at a certain time or when the condition says so.
 
 
@@ -14,7 +16,7 @@ def mean(input):
         mymean=sum(input.values())/len(input)
     else:
         mymean=sum(input)/len(input)    
-    return mymean        
+    return f'The mean is {mymean}'
 
 students_grades={'mary':30,'joe':45,'paul':50,'james':49,'edward':39}
 students_scores=[23,26,27,36,38,38,39,29.92]

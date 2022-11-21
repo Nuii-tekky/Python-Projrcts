@@ -19,3 +19,4 @@ print('what is uwem:',eng_efik['uwem'])
 #we can also get the values of the dictionary items using the value function
 
 print(mydict.values())
+print(type(eng_efik),type(type))

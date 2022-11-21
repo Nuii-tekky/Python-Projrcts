@@ -1,6 +1,4 @@
-#myname= 'Ekomobong'
-#mynextsentence='is my name'
-#print(myname,mynextsentence)
+
 myname= 'Ekomobong '
 mynextsentence='is my name'
 print(myname + mynextsentence)
