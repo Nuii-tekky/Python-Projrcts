@@ -41,9 +41,9 @@ def myfunc(value):
       query_8= input('enter the base length: ')
       return triangle(query_7,query_8)
     else:
-      return 'please follow the given instructions well! '  
-  else:
-    return 'please follow the given instructions well! '  
+      return 'Invalid Input'  
+  else :
+    return 'Invalid Input'  
 
 print(myfunc(query))
 
