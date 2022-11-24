@@ -10,8 +10,11 @@ def render_landing_page():
 # render success page
 @webpage.route("/success",methods= ['POST'])
 def render_success_page():
-  return render_template('success.html')
-
+  if request.method== 'POST':
+    email= request.form['email']
+    print(f'your email is {email} ')
+    return render_template('success.html')
+  
 if __name__== '__main__':
   webpage.debug= True
   webpage.run()
