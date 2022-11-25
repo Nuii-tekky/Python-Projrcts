@@ -11,13 +11,15 @@ def render_landing_page():
 
 @webpage.route("/success.html",methods= ['post'])
 def render_success_page():
+    first_name= request.form['firstname']
+    last_name= request.form['lastname']
     email= request.form['email']
-    print(email)
+    telephone= request.form['telephone']
+    print(first_name,last_name,email,telephone)
     return render_template('success.html')
 
 
 if __name__== '__main__':
   webpage.debug= True
   webpage.run()
-
-
+  
