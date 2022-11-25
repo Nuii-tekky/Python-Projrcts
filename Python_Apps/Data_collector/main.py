@@ -9,13 +9,15 @@ webpage= Flask(__name__)
 def render_landing_page():
     return render_template('sample.html')  
 
+# render success page
 @webpage.route("/success.html",methods= ['post'])
 def render_success_page():
     first_name= request.form['firstname']
     last_name= request.form['lastname']
     email= request.form['email']
     telephone= request.form['telephone']
-    print(first_name,last_name,email,telephone)
+    h2= request.headers['h2']
+    print(first_name,last_name,email,telephone,h2)
     return render_template('success.html')
 
 

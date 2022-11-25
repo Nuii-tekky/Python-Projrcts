@@ -60,6 +60,7 @@ button {
   text-align: center;
 }
 
+/* Success page */
 .body2{
   background-color: #333;
   color: #ccc;
@@ -68,7 +69,7 @@ button {
 }
 
 .success_div{
-  margin: 5rem auto;
+  margin: 10rem auto;
   max-width: 500px;
   color: #ccc;
   border-color: #639979;
